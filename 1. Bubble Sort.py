@@ -1,7 +1,7 @@
 # Bubble Sort는 나열된 수들을 앞에서부터 비교해가면서 작으면 왼쪽, 크면 오른쪽으로 위치를 바꾸어 정렬하는 방법이다.
 
 def BubbleSort(numList):
-    for i in range(len(numList)-1): # 앞에서부터 하나의 수를 뽑아서 그 다음 수와 비교해야 하므로 len(numList)-1번 for문을 돌린다. 제일 마지막 수의 경우는 비교할 수가 뒤에 없이 그 자신이 마지막수가 되므로 리스트의 길이 뒤에 -1을 해준다.
+    for i in range(len(numList)-1): # 앞에서부터 하나의 수를 뽑는다고 했을 때, 그 수의 경우의 수. 만약 5개의 수가 들어있는 리스트라면 비교를 위해 뽑는 제일 앞 수의 경우의 수는 네 가지가 되는 이치이다.
         for j in range(len(numList)-1-i): # 하나의 수를 뽑았다면, 그 수의 다음 수와 비교해야 하므로 len(numList)-1에 -i를 해준다.
             if numList[j] > numList[j+1]:
                 numList[j], numList[j+1]=numList[j+1], numList[j]
