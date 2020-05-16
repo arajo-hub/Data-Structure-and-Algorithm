@@ -10,3 +10,5 @@ def InsertSort(numList):
             j-=1 # key 앞의 수가 하나가 아니라 여러 개일 수 있으므로, key 앞의 수들을 다 가져다가 비교한다.
         numList[j+1]=key # key값이 앞에 있는 수보다 크다면, 그 수의 다음 자리에 key를 넣어준다.
     return numList
+
+# 반복문의 중첩이므로 시간복잡도는 O(n^2)이다.
