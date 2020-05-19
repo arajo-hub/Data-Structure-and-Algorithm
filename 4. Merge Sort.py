@@ -31,3 +31,5 @@ def mergeSort(numList):
             k+=1
 
         return numList
+
+# 쪼개는 과정에서 log n의 시간복잡도, 합치는 과정에서 n의 시간복잡도, 결국 nlog n의 시간복잡도가 된다.
