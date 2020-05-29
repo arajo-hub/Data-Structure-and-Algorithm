@@ -20,11 +20,31 @@ def insert(node, val):
         node.left=insert(node.left, val)
 
     # 만약 root의 val가 새로운 val보다 작을 경우
-    if val<node.val:
+    else:
         node.right=insert(node.right, val)
 
     # root 리턴
     return node
+
+def remove(root, val):
+    if val<root.val:
+        root.left=remove(root.left, val)
+    elif val>root.val:
+        root.right=remove(root.right, val)
+    else:
+        # 자식노드가 한 개이거나 두 개인 경우
+        if root.left is None:
+            temp_node=root.right
+            return temp_node
+        elif root.right is None:
+            temp_node=root.left
+            return temp_node
+        # 자식노드가 두 개 일 때
+        temp_node=minimum(root.right)
+        root.val=temp_node.val
+        root.right=remove(root.right, temp_node.val)
+
+    return root
 
 # inorder
 
@@ -39,15 +59,4 @@ def minimum(node):
     # 노드가 가장 왼쪽으로 갈 경우
     while (node.left is not None):
         node=node.left
-    return node.val
-
-root=None
-root=insert(root, 50)
-root=insert(root, 30)
-root=insert(root, 20)
-root=insert(root, 40)
-root=insert(root, 70)
-root=insert(root, 60)
-root=insert(root, 80)
-inorder(root)
-print(minimum(root))
+    return node
